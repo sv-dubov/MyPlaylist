@@ -62,8 +62,8 @@ namespace MyPlaylistExam
 
         private void btnSignup_Click(object sender, RoutedEventArgs e)
         {
-            //SignUp signUp = new SignUp();
-            //signUp.Show();
+            SignUp signUp = new SignUp();
+            signUp.Show();
         }
     }
 }
