@@ -13,5 +13,6 @@ namespace MyPlaylistExam.Entities
         { }
         public DbSet<User> Users { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
+        public DbSet<Track> Tracks { get; set; }
     }
 }

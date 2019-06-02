@@ -18,5 +18,6 @@ namespace MyPlaylistExam.Entities
         [ForeignKey("Users")]
         public int ? UserId { get; set; }
         public User Users { get; set; }
+        public ICollection<Track> Tracks { get; set; }
     }
 }

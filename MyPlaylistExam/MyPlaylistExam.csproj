@@ -63,9 +63,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Entities\Playlist.cs" />
+    <Compile Include="Entities\Track.cs" />
     <Compile Include="Migrations\201906021246090_Add table tblPlaylist.cs" />
     <Compile Include="Migrations\201906021246090_Add table tblPlaylist.Designer.cs">
       <DependentUpon>201906021246090_Add table tblPlaylist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906021256252_Add table tblTrack.cs" />
+    <Compile Include="Migrations\201906021256252_Add table tblTrack.Designer.cs">
+      <DependentUpon>201906021256252_Add table tblTrack.cs</DependentUpon>
     </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -120,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906021246090_Add table tblPlaylist.resx">
       <DependentUpon>201906021246090_Add table tblPlaylist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021256252_Add table tblTrack.resx">
+      <DependentUpon>201906021256252_Add table tblTrack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
