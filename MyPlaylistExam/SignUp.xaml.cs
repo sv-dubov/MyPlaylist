@@ -93,7 +93,7 @@ namespace MyPlaylistExam
                         con.Open();
                         SqlCommand command = new SqlCommand();
                         command.Connection = con;
-                        var query = $"INSERT INTO [tblUserPL] ([UserName], [Password]) VALUES('{user.Name}','{user.Password}')";
+                        var query = $"INSERT INTO [tblUserPL] ([Name], [Password]) VALUES('{user.Name}','{user.Password}')";
                         command.CommandText = query;
                         int userId = 0;
                         var count = command.ExecuteNonQuery();

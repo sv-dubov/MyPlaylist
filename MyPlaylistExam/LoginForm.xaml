@@ -10,7 +10,7 @@
         <StackPanel Margin="20">
             <Label x:Name="lblLogin" Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
             <Separator></Separator>
-            <Label x:Name="lblUsername" Content="E-mail" Foreground="White"/>
+            <Label x:Name="lblUsername" Content="Nickname" Foreground="White"/>
             <TextBox Name="txtUsername" Background="White" Foreground="Black" FontSize="18"/>
             <Label x:Name="lblPassword" Content="Password" Foreground="White"/>
             <PasswordBox Name="txtPassword" Background="White" Foreground="Black" FontSize="18"/>

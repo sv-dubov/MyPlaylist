@@ -8,17 +8,15 @@ using System.Threading.Tasks;
 
 namespace MyPlaylistExam.Entities
 {
-    [Table("tblUserPL")]
-    public class User
+    [Table("tblPlaylist")]
+    public class Playlist
     {
         [Key]
         public int Id { get; set; }
         [Required, StringLength(maximumLength: 255)]
-        public string Name { get; set; }
-        [Required, StringLength(maximumLength: 255)]
-        public string Password { get; set; }
-        [StringLength(maximumLength: 255)]
-        public string Image { get; set; }
-        public ICollection<Playlist> Playlists { get; set; }
+        public string NameList { get; set; }
+        [ForeignKey("Users")]
+        public int ? UserId { get; set; }
+        public User Users { get; set; }
     }
 }
