@@ -1,12 +1,13 @@
-﻿<Window x:Class="MyPlaylistExam.MainWindow"
+﻿<Window x:Class="MyPlaylistExam.TrackForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyPlaylistExam"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="TrackForm" Height="300" Width="300">
     <Grid>
+        <Button x:Name="BtnFind" Content="Find" HorizontalAlignment="Left" Margin="22,21,0,0" VerticalAlignment="Top" Width="91" Height="26" Click="BtnFind_Click"/>
 
     </Grid>
 </Window>

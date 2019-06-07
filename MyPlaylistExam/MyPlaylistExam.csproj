@@ -40,6 +40,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -72,8 +75,18 @@
     <Compile Include="Migrations\201906021256252_Add table tblTrack.Designer.cs">
       <DependentUpon>201906021256252_Add table tblTrack.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\PlaylistViewModel.cs" />
+    <Compile Include="Models\TrackObserveViewModel.cs" />
+    <Compile Include="Models\TrackViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrackForm.xaml.cs">
+      <DependentUpon>TrackForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TracksForm.xaml.cs">
+      <DependentUpon>TracksForm.xaml</DependentUpon>
     </Compile>
     <Page Include="LoginForm.xaml">
       <SubType>Designer</SubType>
@@ -97,6 +110,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SignUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrackForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TracksForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,5 +163,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
