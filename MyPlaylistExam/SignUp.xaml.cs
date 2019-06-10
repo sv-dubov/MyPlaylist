@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -25,6 +26,15 @@ namespace MyPlaylistExam
         public SignUp()
         {
             InitializeComponent();
+        }
+
+        public static string PasswordHash(string plaintext)
+        {
+            HashAlgorithm mhash = new SHA1CryptoServiceProvider();
+            byte[] bytValue = Encoding.UTF8.GetBytes(plaintext);
+            byte[] bytHash = mhash.ComputeHash(bytValue);
+            mhash.Clear();
+            return Convert.ToBase64String(bytHash);
         }
 
         private void btnNewSubmit_Click(object sender, RoutedEventArgs e)
@@ -81,7 +91,8 @@ namespace MyPlaylistExam
             User user = new User()
             {
                 Name = txtNewLogin.Text,
-                Password = txtNewPassword.Password,
+                //Password = txtNewPassword.Password
+                Password = PasswordHash(txtNewPassword.Password)
             };
             try
             {

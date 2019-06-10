@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,15 @@ namespace MyPlaylistExam
             InitializeComponent();
         }
 
+        public static string PasswordHash(string plaintext)
+        {
+            HashAlgorithm mhash = new SHA1CryptoServiceProvider();
+            byte[] bytValue = Encoding.UTF8.GetBytes(plaintext);
+            byte[] bytHash = mhash.ComputeHash(bytValue);
+            mhash.Clear();
+            return Convert.ToBase64String(bytHash);
+        }
+
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection conStr = new SqlConnection(@"Data Source = SLIMBOYFAT-ПК; Initial Catalog = MyPlaylist; Integrated Security = True");
@@ -37,7 +47,7 @@ namespace MyPlaylistExam
                 SqlCommand cmd = new SqlCommand(query, conStr);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@Name", txtUsername.Text);
-                cmd.Parameters.AddWithValue("@Password", txtPassword.Password);
+                cmd.Parameters.AddWithValue("@Password", PasswordHash(txtPassword.Password));
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 if (count == 1)
                 {
