@@ -75,10 +75,14 @@
     <Compile Include="Migrations\201906021256252_Add table tblTrack.Designer.cs">
       <DependentUpon>201906021256252_Add table tblTrack.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\PlaylistObserveViewModel.cs" />
     <Compile Include="Models\PlaylistViewModel.cs" />
     <Compile Include="Models\TrackObserveViewModel.cs" />
     <Compile Include="Models\TrackViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="PlaylistForm.xaml.cs">
+      <DependentUpon>PlaylistForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
@@ -109,6 +113,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlaylistForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SignUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

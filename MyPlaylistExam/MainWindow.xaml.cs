@@ -22,7 +22,9 @@ namespace MyPlaylistExam
     {
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
+            TracksForm track = new TracksForm();
+            track.Show();
         }
     }
 }

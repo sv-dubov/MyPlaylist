@@ -1,11 +1,11 @@
-﻿<Window x:Class="MyPlaylistExam.TracksForm"
+﻿<Window x:Class="MyPlaylistExam.PlaylistForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyPlaylistExam"
         mc:Ignorable="d"
-        Title="TracksForm" Height="400" Width="870">
+        Title="PlaylistForm" Height="400" Width="670">
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#FF0055FF"/>
@@ -40,13 +40,11 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <DataGrid Name="myDataGrid" HorizontalAlignment="Left" Height="319" Margin="332,10,0,0" VerticalAlignment="Top" Width="505" AutoGenerateColumns="False">
+        <DataGrid Name="myDataGrid" HorizontalAlignment="Left" Height="319" Margin="332,10,0,0" VerticalAlignment="Top" Width="305" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Title" Binding="{Binding NameTrack}" />
-                <DataGridTextColumn Header="Artist" Binding="{Binding Artist}" />
-                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" />
-                <DataGridTextColumn Header="Playlist" Binding="{Binding PlaylistId}" />
+                <DataGridTextColumn Header="Title" Binding="{Binding NameList}" />
+                <DataGridTextColumn Header="User" Binding="{Binding UserId}" />
             </DataGrid.Columns>
             <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
@@ -65,29 +63,22 @@
                             <TextBlock Text="ID: " FontWeight="Bold" />
                             <TextBlock Text="{Binding Id}" Grid.Column="1" />
                             <TextBlock Text="Title: " FontWeight="Bold" Grid.Row="1" />
-                            <TextBlock Text="{Binding NameTrack}" Grid.Column="1" Grid.Row="1" />
-                            <TextBlock Text="Artist: " FontWeight="Bold" Grid.Row="2" />
-                            <TextBlock Text="{Binding Artist}" Grid.Column="1" Grid.Row="2" />
-                            <TextBlock Text="Playlist: " FontWeight="Bold" Grid.Row="3" />
-                            <TextBlock Text="{Binding PlaylistId}" Grid.Column="1" Grid.Row="3" />
+                            <TextBlock Text="{Binding NameList}" Grid.Column="1" Grid.Row="1" />
+                            <TextBlock Text="User: " FontWeight="Bold" Grid.Row="3" />
+                            <TextBlock Text="{Binding UserId}" Grid.Column="1" Grid.Row="3" />
                         </Grid>
                     </DockPanel>
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
         <Label Content="Id" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top"/>
-        <Label Content="Title" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
-        <Label Content="Artist" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
-        <Label Content="Genre" HorizontalAlignment="Left" Margin="11,172,0,0" VerticalAlignment="Top"/>
+        <Label Content="Title of Playlist" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="id_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="nametrack_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="artist_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="genre_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <GroupBox Header="Track Information" HorizontalAlignment="Left" Height="245" Margin="11,21,0,0" VerticalAlignment="Top" Width="303" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="namelist_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <GroupBox Header="Playlist Information" HorizontalAlignment="Left" Height="245" Margin="11,21,0,0" VerticalAlignment="Top" Width="303" FontWeight="Bold" FontSize="14"/>
         <Button x:Name="add_btn" Content="Add" HorizontalAlignment="Left" Margin="11,276,0,0" VerticalAlignment="Top" Width="75" Click="add_btn_Click"/>
         <Button x:Name="update_btn" Content="Update" HorizontalAlignment="Left" Margin="110,276,0,0" VerticalAlignment="Top" Width="75" IsEnabled="True" Click="update_btn_Click"/>
         <Button x:Name="delete_btn" Content="Delete" HorizontalAlignment="Left" Margin="214,276,0,0" VerticalAlignment="Top" Width="75" IsEnabled="True" Click="delete_btn_Click"/>
         <Button x:Name="reset_btn" Content="Reset" HorizontalAlignment="Left" Margin="110,309,0,0" VerticalAlignment="Top" Width="75" Click="reset_btn_Click"/>
-        
     </Grid>
 </Window>

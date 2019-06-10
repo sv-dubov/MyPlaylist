@@ -30,13 +30,13 @@ namespace MyPlaylistExam
             {
                 tracks = new ObservableCollection<TrackObserveViewModel>
                                     (
-                                    context.Tracks.Select(u => new TrackObserveViewModel
+                                    context.Tracks.Select(t => new TrackObserveViewModel
                                     {
-                                        Id = u.Id,
-                                        NameTrack = u.NameTrack,
-                                        Artist = u.Artist,
-                                        Genre = u.Genre,
-                                        PlaylistId = u.PlaylistId ?? 0
+                                        Id = t.Id,
+                                        NameTrack = t.NameTrack,
+                                        Artist = t.Artist,
+                                        Genre = t.Genre,
+                                        PlaylistId = t.PlaylistId ?? 0
                                     }).ToList());
                 myDataGrid.ItemsSource = tracks;
             }
@@ -72,7 +72,7 @@ namespace MyPlaylistExam
                 if (myDataGrid.SelectedItem != null)
                 {
                     var trackView = (myDataGrid.SelectedItem as TrackObserveViewModel);
-                    var track = context.Tracks.SingleOrDefault(u => u.Id == trackView.Id);
+                    var track = context.Tracks.SingleOrDefault(t => t.Id == trackView.Id);
                     if (track != null)
                     {
                         track.NameTrack = nametrack_txtbx.Text;
@@ -94,7 +94,7 @@ namespace MyPlaylistExam
                 if (myDataGrid.SelectedItem != null)
                 {
                     var trackView = (myDataGrid.SelectedItem as TrackObserveViewModel);
-                    var track = context.Tracks.SingleOrDefault(u => u.Id == trackView.Id);
+                    var track = context.Tracks.SingleOrDefault(t => t.Id == trackView.Id);
                     if (track != null)
                     {
                         tracks.Remove(trackView);
