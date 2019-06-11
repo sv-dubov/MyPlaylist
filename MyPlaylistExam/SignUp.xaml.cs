@@ -1,4 +1,7 @@
-﻿using MyPlaylistExam.Entities;
+﻿using Microsoft.Win32;
+using MyPlaylistExam.Entities;
+using MyPlaylistExam.Helpers;
+using MyPlaylistExam.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -23,9 +26,12 @@ namespace MyPlaylistExam
     /// </summary>
     public partial class SignUp : Window
     {
+        private EFContext _context;
+        public string ImgStr { get; set; }
         public SignUp()
         {
             InitializeComponent();
+            _context = new EFContext();
         }
 
         public static string PasswordHash(string plaintext)
@@ -88,49 +94,33 @@ namespace MyPlaylistExam
 
         private void AddUser()
         {
-            User user = new User()
-            {
-                Name = txtNewLogin.Text,
-                //Password = txtNewPassword.Password
-                Password = PasswordHash(txtNewPassword.Password)
-            };
             try
             {
-                using (TransactionScope scope = new TransactionScope())
+                _context.Users.Add(new User
                 {
-                    //string strCon = ConfigurationManager.AppSettings["DefaultConnection"];
-                    using (SqlConnection con = new SqlConnection(@"Data Source = SLIMBOYFAT-ПК; Initial Catalog = MyPlaylist; Integrated Security = True"))
-                    {
-                        con.Open();
-                        SqlCommand command = new SqlCommand();
-                        command.Connection = con;
-                        var query = $"INSERT INTO [tblUserPL] ([Name], [Password]) VALUES('{user.Name}','{user.Password}')";
-                        command.CommandText = query;
-                        int userId = 0;
-                        var count = command.ExecuteNonQuery();
-                        if (count == 1)
-                        {
-                            query = "SELECT SCOPE_IDENTITY() AS UserId";
-                            command.CommandText = query;
-                            SqlDataReader reader = command.ExecuteReader();
-                            if (reader.Read())
-                            {
-                                userId = int
-                                    .Parse(reader["UserId"].ToString());
-                            }
-                            MessageBox.Show("Ваші дані додано успішно!");
-                            reader.Close();
-                        }
-                        else { throw new Exception("Проблема при додаванні користувача"); }
-                    }
-                    scope.Complete();
-                }
+                    Name = txtNewLogin.Text,
+                    Password = PasswordHash(txtNewPassword.Password),
+                    Image = ImgStr
+                });
+                _context.SaveChanges();
+                MessageBox.Show("Ваші дані додано успішно!");
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Помилка збереження даних", ex.Message);
             }
             Close();
+        }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                ImgStr = ImageHelper.ImgToBase64(System.Drawing.Image.FromFile(dialog.FileName));
+                imgUser.Source = new BitmapImage(new Uri(dialog.FileName));
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyPlaylistExam"
         mc:Ignorable="d"
-       Title="Sign up" Height="454" Width="400" FontSize="14" Background="YellowGreen">
+       Title="Sign up" Height="600" Width="400" FontSize="14" Background="YellowGreen">
     <Border Background="Black" CornerRadius="20" Margin="20">
         <StackPanel Margin="20">
             <Label x:Name="lblNewLogin" Content="Enter login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
@@ -14,7 +14,10 @@
             <PasswordBox Name="txtNewPassword" Background="White" Foreground="Black" FontSize="18"/>
             <Label x:Name="lblNewPasswordCopy" Content="Enter password again" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
             <PasswordBox x:Name="txtNewPasswordCopy" Background="White" Foreground="Black" FontSize="18"/>
-            <Button x:Name="btnNewSubmit" Content="Go!" Margin="60 40" Background="White" Foreground="Black" FontSize="18" Click="btnNewSubmit_Click"/>
+            <Border Height="128" Margin="92,15,85.6,0" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+                <Image x:Name="imgUser" Source="Images/no-image-user.jpg" Width="110" Height="110" Stretch="Uniform"/>
+            </Border>
+            <Button x:Name="btnNewSubmit" Content="Go!" Margin="60,18,59.6,40" Background="White" Foreground="Black" FontSize="18" Click="btnNewSubmit_Click"/>
         </StackPanel>
     </Border>
 </Window>
