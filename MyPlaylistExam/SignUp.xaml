@@ -14,7 +14,7 @@
             <PasswordBox Name="txtNewPassword" Background="White" Foreground="Black" FontSize="18"/>
             <Label x:Name="lblNewPasswordCopy" Content="Enter password again" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
             <PasswordBox x:Name="txtNewPasswordCopy" Background="White" Foreground="Black" FontSize="18"/>
-            <Button x:Name="btnNewSubmit" Content="Submit" Margin="60 40" Background="White" Foreground="Black" FontSize="18" Click="btnNewSubmit_Click"/>
+            <Button x:Name="btnNewSubmit" Content="Go!" Margin="60 40" Background="White" Foreground="Black" FontSize="18" Click="btnNewSubmit_Click"/>
         </StackPanel>
     </Border>
 </Window>

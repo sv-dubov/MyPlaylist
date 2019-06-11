@@ -28,14 +28,14 @@ namespace MyPlaylistExam
         private void BtnLoginStart_Click(object sender, RoutedEventArgs e)
         {
             LoginForm login = new LoginForm();
-            login.ShowDialog();
+            login.Show();
             Close();
         }
 
         private void BtnSignUpStart_Click(object sender, RoutedEventArgs e)
         {
             SignUp signup = new SignUp();
-            signup.ShowDialog();
+            signup.Show();
             Close();
         }
     }

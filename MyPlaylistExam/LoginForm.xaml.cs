@@ -51,8 +51,8 @@ namespace MyPlaylistExam
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 if (count == 1)
                 {
-                    MainWindow dashboard = new MainWindow();
-                    dashboard.Show();
+                    TracksForm tf = new TracksForm();
+                    tf.Show();
                     Close();
                 }
                 else

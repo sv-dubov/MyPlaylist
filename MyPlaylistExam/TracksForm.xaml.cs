@@ -126,5 +126,11 @@ namespace MyPlaylistExam
                 cmbPlaylist.ItemsSource.Equals(listCategories);
             }
         }
+
+        private void playlist_btn_Click(object sender, RoutedEventArgs e)
+        {
+            PlaylistForm pl = new PlaylistForm();
+            pl.Show();
+        }
     }
 }
