@@ -112,5 +112,19 @@ namespace MyPlaylistExam
             artist_txtbx.Text = "";
             genre_txtbx.Text = "";
         }
+
+        private void GroupBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (EFContext context = new EFContext())
+            {
+                var listCategories = context.Playlists
+               .Select(c => new SelectItemModel
+               {
+                   Id = c.Id,
+                   Value = c.NameList
+               }).ToArray();
+                cmbPlaylist.ItemsSource.Equals(listCategories);
+            }
+        }
     }
 }

@@ -22,9 +22,21 @@ namespace MyPlaylistExam
     {
         public MainWindow()
         {
-            //InitializeComponent();
-            TracksForm track = new TracksForm();
-            track.Show();
+            InitializeComponent();
+        }
+
+        private void BtnLoginStart_Click(object sender, RoutedEventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            login.ShowDialog();
+            Close();
+        }
+
+        private void BtnSignUpStart_Click(object sender, RoutedEventArgs e)
+        {
+            SignUp signup = new SignUp();
+            signup.ShowDialog();
+            Close();
         }
     }
 }

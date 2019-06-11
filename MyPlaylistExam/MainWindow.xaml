@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyPlaylistExam"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="350">
     <Grid>
+        <Image Source="Images/MyPlaylistPic.png" HorizontalAlignment="Center" Height="156" Margin="91,31,92,0" VerticalAlignment="Top" Width="161"/>
+        <Button x:Name="BtnLoginStart" Content="Login" HorizontalAlignment="Left" Margin="25,229,0,0" VerticalAlignment="Top" Width="130" Height="41" FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Click="BtnLoginStart_Click"/>
+        <Button x:Name="BtnSignUpStart" Content="Signup" HorizontalAlignment="Left" Margin="188,229,0,0" VerticalAlignment="Top" Width="130" Height="41" FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Click="BtnSignUpStart_Click"/>
 
     </Grid>
 </Window>

@@ -79,15 +79,16 @@
         <Label Content="Title" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
         <Label Content="Artist" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
         <Label Content="Genre" HorizontalAlignment="Left" Margin="11,172,0,0" VerticalAlignment="Top"/>
+        <Label Content="Playlist" HorizontalAlignment="Left" Margin="11,217,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="id_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="nametrack_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="artist_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="genre_txtbx"  HorizontalAlignment="Left" Height="23" Margin="181,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <GroupBox Header="Track Information" HorizontalAlignment="Left" Height="245" Margin="11,21,0,0" VerticalAlignment="Top" Width="303" FontWeight="Bold" FontSize="14"/>
+        <GroupBox Header="Track Information" HorizontalAlignment="Left" Height="245" Margin="11,21,0,0" VerticalAlignment="Top" Width="303" FontWeight="Bold" FontSize="14" Loaded="GroupBox_Loaded"/>
         <Button x:Name="add_btn" Content="Add" HorizontalAlignment="Left" Margin="11,276,0,0" VerticalAlignment="Top" Width="75" Click="add_btn_Click"/>
         <Button x:Name="update_btn" Content="Update" HorizontalAlignment="Left" Margin="110,276,0,0" VerticalAlignment="Top" Width="75" IsEnabled="True" Click="update_btn_Click"/>
         <Button x:Name="delete_btn" Content="Delete" HorizontalAlignment="Left" Margin="214,276,0,0" VerticalAlignment="Top" Width="75" IsEnabled="True" Click="delete_btn_Click"/>
         <Button x:Name="reset_btn" Content="Reset" HorizontalAlignment="Left" Margin="110,309,0,0" VerticalAlignment="Top" Width="75" Click="reset_btn_Click"/>
-        
+        <ComboBox x:Name="cmbPlaylist"  HorizontalAlignment="Left" Margin="181,219,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
