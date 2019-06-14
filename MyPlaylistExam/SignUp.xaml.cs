@@ -4,6 +4,7 @@ using MyPlaylistExam.Helpers;
 using MyPlaylistExam.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -18,6 +19,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Web;
 
 namespace MyPlaylistExam
 {
@@ -76,7 +78,7 @@ namespace MyPlaylistExam
                             if (en && symbol && number) // перевірка на повну відповідність
                                 if (en)
                                 {
-                                    if (txtNewPassword.Password == txtNewPasswordCopy.Password) // проверка на совпадение паролей
+                                    if (txtNewPassword.Password == txtNewPasswordCopy.Password) // перевірка співпадіння паролів
                                     {
                                         AddUser();
                                     }
@@ -103,6 +105,22 @@ namespace MyPlaylistExam
                     Image = ImgStr
                 });
                 _context.SaveChanges();
+                //try
+                //{
+                //    _context.SaveChanges();
+                //}
+                //catch (DbEntityValidationException ex)
+                //{
+                //    foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                //    {
+                //        System.Web.HttpContext.Current.Response.Write("Object: " + validationError.Entry.Entity.ToString());
+                //        System.Web.HttpContext.Current.Response.Write("");
+                //        foreach (DbValidationError err in validationError.ValidationErrors)
+                //        {
+                //            System.Web.HttpContext.Current.Response.Write(err.ErrorMessage + "");
+                //        }
+                //    }
+                //}
                 MessageBox.Show("Ваші дані додано успішно!");
             }
 

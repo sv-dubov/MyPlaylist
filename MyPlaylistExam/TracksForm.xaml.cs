@@ -23,9 +23,12 @@ namespace MyPlaylistExam
     public partial class TracksForm : Window
     {
         private ObservableCollection<TrackObserveViewModel> tracks = new ObservableCollection<TrackObserveViewModel>();
+        private ObservableCollection<PlaylistObserveViewModel> pl = new ObservableCollection<PlaylistObserveViewModel>();
+
         public TracksForm()
         {
             InitializeComponent();
+
             using (EFContext context = new EFContext())
             {
                 tracks = new ObservableCollection<TrackObserveViewModel>
@@ -39,6 +42,14 @@ namespace MyPlaylistExam
                                         PlaylistId = t.PlaylistId ?? 0
                                     }).ToList());
                 myDataGrid.ItemsSource = tracks;
+
+                pl = new ObservableCollection<PlaylistObserveViewModel>
+                                    (
+                                    context.Playlists.Select(t => new PlaylistObserveViewModel
+                                    {
+                                        NameList = t.NameList
+                                    }).ToList());
+                cmbPlaylist.ItemsSource = pl;
             }
         }
 
@@ -111,20 +122,6 @@ namespace MyPlaylistExam
             nametrack_txtbx.Text = "";
             artist_txtbx.Text = "";
             genre_txtbx.Text = "";
-        }
-
-        private void GroupBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            using (EFContext context = new EFContext())
-            {
-                var listCategories = context.Playlists
-               .Select(c => new SelectItemModel
-               {
-                   Id = c.Id,
-                   Value = c.NameList
-               }).ToArray();
-                cmbPlaylist.ItemsSource.Equals(listCategories);
-            }
         }
 
         private void playlist_btn_Click(object sender, RoutedEventArgs e)
