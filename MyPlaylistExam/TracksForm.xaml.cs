@@ -40,6 +40,7 @@ namespace MyPlaylistExam
                                         Artist = t.Artist,
                                         Genre = t.Genre,
                                         PlaylistId = t.PlaylistId ?? 0
+                                        //PlaylistId = (int)t.PlaylistId
                                     }).ToList());
                 myDataGrid.ItemsSource = tracks;
 
@@ -128,6 +129,12 @@ namespace MyPlaylistExam
         {
             PlaylistForm pl = new PlaylistForm();
             pl.Show();
+        }
+
+        private void Toexel_btn_Click(object sender, RoutedEventArgs e)
+        {
+            ToExel.WriteToExcel();
+            MessageBox.Show("Дані успішно записані у файл Tracks.xlsx");
         }
     }
 }

@@ -9,7 +9,8 @@ namespace MyPlaylistExam.Entities
 {
     public class EFContext : DbContext
     {
-        public EFContext() : base("DefaultNpgsqlConnection")
+        //public EFContext() : base("DefaultNpgsqlConnection")
+        public EFContext() : base("DefaultConnection")
         { }
         public DbSet<User> Users { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
